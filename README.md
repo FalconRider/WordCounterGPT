@@ -25,4 +25,18 @@ So if I pasted " I have a dog ."  it would return 4 words, ignoring the period p
 
 Ask me questions if you need to, go to code, in a single  html file with imbedded css and JS , when you have what you need.
 
+------------------------------------------------------------------
+It also added comments after the code:
+
+Features:
+Title and Version: The page displays a bold title "Word Counter" and dynamically appends today's date to the version line.
+Input Box: A large input area to paste the text.
+Buttons:
+Count: Counts the words in the input while ignoring punctuation and extra spaces.
+Clear: Clears the input field and resets the result area.
+Responsive Design: Works well on both desktop and mobile devices.
+Let me know if you need any further adjustments!
+
+
+
 
