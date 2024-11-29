@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #4a90e2;
+        }
+        .version {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        .input-area {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            font-size: 1em;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        .buttons {
+            margin: 15px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4a90e2;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        .result {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #4a4a4a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word Counter</h1>
+    <div class="version">Version: 1.0 - <!-- The date will be auto-inserted by JavaScript --></div>
+
+    <div class="input-area">
+        <textarea id="textInput" placeholder="Paste your text here..."></textarea>
+    </div>
+
+    <div class="buttons">
+        <button id="countButton">Count</button>
+        <button id="clearButton">Clear</button>
+    </div>
+
+    <div class="result" id="resultArea">Word count will appear here.</div>
+
+    <script>
+        // Update version with today's date
+        document.querySelector('.version').innerHTML += new Date().toLocaleDateString();
+
+        // Count words function
+        function countWords() {
+            const textInput = document.getElementById('textInput').value;
+            const wordCount = textInput
+                .trim() // Remove whitespace from start and end
+                .replace(/[^\w\s]/g, '') // Remove punctuation
+                .split(/\s+/) // Split by spaces
+                .filter(word => word.length > 0) // Remove empty strings
+                .length;
+            document.getElementById('resultArea').textContent = `Word Count: ${wordCount}`;
+        }
+
+        // Clear input and result
+        function clearInput() {
+            document.getElementById('textInput').value = '';
+            document.getElementById('resultArea').textContent = 'Word count will appear here.';
+        }
+
+        // Attach event listeners to buttons
+        document.getElementById('countButton').addEventListener('click', countWords);
+        document.getElementById('clearButton').addEventListener('click', clearInput);
+    </script>
+</body>
+</html>
